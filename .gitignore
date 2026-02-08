@@ -1,0 +1,5 @@
+# IDE и редакторы
+.idea/
+.vscode/
+*.code-workspace
+*.sublime-*
