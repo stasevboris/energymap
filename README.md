@@ -46,7 +46,6 @@
 5. Сохранение версий схемы и формирование отчетов.
 6. Администрирование пользователей и аудит действий.
 
-**Авторы:** Стасев Б.В., Дешев А.П., Рылушкин Б.А.
 
 
 
@@ -75,7 +74,7 @@
 ```bash
 docker-compose up --build
 
-```
+
 
 
 * Первый запуск может занять 5–10 минут.
@@ -91,21 +90,18 @@ docker-compose up --build
 ```bash
 docker-compose exec web python manage.py migrate
 
-```
 
 
 * **Создать админа:**
 ```bash
 docker-compose exec web python manage.py createsuperuser
 
-```
 
 
 * **Bash-терминал контейнера:**
 ```bash
 docker-compose exec web bash
 
-```
 
 
 
@@ -117,7 +113,6 @@ docker-compose exec web bash
 pip install pre-commit
 pre-commit install
 
-```
 
 ### Структура проекта
 
@@ -129,12 +124,9 @@ energymap/
 ├── docker-compose.yml  # Описание сервисов
 └── requirements.txt    # Зависимости
 
-```
-
----
 
 *Дата создания: февраль 2026*
 
 ```
-
+**Авторы:** Стасев Б.В., Дешев А.П., Рылушкин Б.А.
 ```
