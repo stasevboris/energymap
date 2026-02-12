@@ -1,4 +1,3 @@
----
 
 ```markdown
 # EnergyMap: Платформа для расчёта электрических режимов
@@ -49,7 +48,7 @@
 
 **Авторы:** Стасев Б.В., Дешев А.П., Рылушкин Б.А.
 
----
+
 
 ## 2. Инструкция по запуску (Quick Start)
 
@@ -71,7 +70,6 @@
    git clone [https://github.com/stasevboris/energymap.git](https://github.com/stasevboris/energymap.git)
    cd energymap
 
-```
 
 2. **Соберите и запустите контейнеры:**
 ```bash
