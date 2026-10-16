@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-replace-me'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-dev-only')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', '0') == '1'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -117,17 +118,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# MySQL конфигурация для Docker
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'energymap',
-        'USER': 'energymap',
-        'PASSWORD': '<MYSQL_PASSWORD>',
-        'HOST': 'db',
-        'PORT': '3306',
-        'OPTIONS': {
-            'charset': 'utf8mb4',
+# MySQL в Docker: включается, если задан MYSQL_HOST
+if os.environ.get('MYSQL_HOST'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('MYSQL_DATABASE', 'energymap'),
+            'USER': os.environ.get('MYSQL_USER', 'energymap'),
+            'PASSWORD': os.environ['MYSQL_PASSWORD'],
+            'HOST': os.environ['MYSQL_HOST'],
+            'PORT': os.environ.get('MYSQL_PORT', '3306'),
+            'OPTIONS': {'charset': 'utf8mb4'},
         }
     }
-}

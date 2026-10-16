@@ -97,13 +97,14 @@ cd energymap
 **2. Соберите и запустите контейнеры:**
 
 ```bash
+cp .env.example .env   # задайте свои пароли
 docker-compose up --build
 
 ```
 
 > 💡 **Примечание:**
 > * Первый запуск может занять 5–10 минут.
-> * После запуска откройте: [http://localhost:8000](https://www.google.com/search?q=http://localhost:8000)
+> * После запуска откройте: [http://localhost:8000](http://localhost:8000)
 > 
 > 
 

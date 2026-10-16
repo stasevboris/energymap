@@ -3,3 +3,12 @@
 .vscode/
 *.code-workspace
 *.sublime-*
+
+# окружение и данные
+.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+db.sqlite3
+*.bak
